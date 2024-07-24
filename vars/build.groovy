@@ -2,7 +2,7 @@
 
 def call(){
     install_dependencies()
-    checkout()
+    checkout_git()
     sh'''
         apt-get -y -qq update && apt-get -y -qq install cmake ninja-build
     '''
