@@ -2,15 +2,15 @@
 
 def call(){
     script{
-        install_dependencies()
-        checkout()
+        shared_steps.install_dependencies()
+        shared_steps.checkout()
     }
     sh'''
         apt-get -y -qq update && apt-get -y -qq install cmake ninja-build
     '''
     script{
-        arm-none-eabi-gcc()
-        check_installs()
+        shared_steps.arm-none-eabi-gcc()
+        shared_steps.check_installs()
     }
     sh '''
         cd StateOS_BA_Jenkins
