@@ -1,5 +1,4 @@
 #!/usr/bin/env groovy
-import vars.shared_steps
 
 def call(){
     install_dependencies()
