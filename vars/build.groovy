@@ -1,5 +1,4 @@
 #!/usr/bin/env groovy
-import src.StateOS_BA.*
 
 def call(){
     script{
