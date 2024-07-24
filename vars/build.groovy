@@ -1,5 +1,5 @@
 #!/usr/bin/env groovy
-
+import src/StateOS_BA_Jenkins/*
 
 def call(){
     script{
