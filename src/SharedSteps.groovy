@@ -20,6 +20,12 @@ def install_dependencies(){
     ''', label: "install dependencies"
 }
 
+def install_ninja(){
+    sh script:'''
+        apt-get -y -qq update && apt-get -y -qq install cmake ninja-build
+    ''' , label:"install"
+}
+
 def arm_install(){
     sh script: '''
         wget -q https://developer.arm.com/-/media/Files/downloads/gnu/11.3.rel1/binrel/arm-gnu-toolchain-11.3.rel1-x86_64-arm-none-eabi.tar.xz
