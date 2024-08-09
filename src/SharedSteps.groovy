@@ -3,7 +3,7 @@ def checkout_git(String workingOrg, String workingRepo){
     sh git.sh workingOrg $workingRepo
 }
 
-def install_dependencies(boolean flag_dependencies, boolean flag_ninja){
+def install_dependencies(){
     sh script: '''
         apt-get update && apt-get -y -qq install git
         apt-get install -y wget
@@ -31,7 +31,7 @@ def arm_install(){
     }
 }
 
-def check_installs(boolean flag_arm){
+def check_installs(){
     sh script: '''
         arm-none-eabi-gcc -v
     ''', label: "check installs"
