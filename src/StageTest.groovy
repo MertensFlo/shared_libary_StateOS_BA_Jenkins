@@ -1,7 +1,6 @@
 
 def example_test(){
     def sharedSteps = new SharedSteps()
-    sharedSteps.checkout_git()
     sharedSteps.install_ninja()
     sharedSteps.arm_install()
     sharedSteps.check_installs()
@@ -15,7 +14,6 @@ def example_test(){
 
 def static_test(){
     def sharedSteps = new SharedSteps()
-    sharedSteps.checkout_git()
     sharedSteps.install_ninja()
     sharedSteps.arm_install()
     sharedSteps.check_installs()
@@ -29,7 +27,6 @@ def static_test(){
 
 def unit_test(){
     def sharedSteps = new SharedSteps()
-    sharedSteps.checkout_git()
     sharedSteps.install_ninja()
     sharedSteps.arm_install()
     sharedSteps.check_installs()
