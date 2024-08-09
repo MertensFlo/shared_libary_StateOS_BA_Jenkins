@@ -1,4 +1,3 @@
-@libraryResource()
 
 def load_git_script = libraryResource 'git.sh'
 
