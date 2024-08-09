@@ -1,7 +1,6 @@
 
 def checkout_git(){
-
-    sh '''
+    sh script: '''
         git --version
         git clone https://github.com/MertensFlo/StateOS_BA_Jenkins.git
         cd StateOS_BA_Jenkins
@@ -11,7 +10,7 @@ def checkout_git(){
 }
 
 def install_dependencies(){
-    sh '''
+    sh script: '''
         apt-get update && apt-get -y -qq install git
         apt-get install -y wget
         apt-get install -y xz-utils 
@@ -22,7 +21,7 @@ def install_dependencies(){
 }
 
 def arm_install(){
-    sh '''
+    sh script: '''
         wget -q https://developer.arm.com/-/media/Files/downloads/gnu/11.3.rel1/binrel/arm-gnu-toolchain-11.3.rel1-x86_64-arm-none-eabi.tar.xz
         echo "1"
         tar -xf arm-gnu-toolchain-11.3.rel1-x86_64-arm-none-eabi.tar.xz
@@ -33,7 +32,7 @@ def arm_install(){
 }
 
 def check_installs(){
-    sh '''
+    sh script: '''
         arm-none-eabi-gcc -v
     ''', label: "check installs"
 }
