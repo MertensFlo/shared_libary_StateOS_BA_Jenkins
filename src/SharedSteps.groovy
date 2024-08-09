@@ -4,16 +4,16 @@ def checkout_git(String workingOrg, String workingRepo){
         git --version
         echo $workingOrg
         echo $workingRepo
-        git_repo = "https://github.com/"$working"/"$workingRepo".git"
+        git_repo = "https://github.com/"$1"/"$2".git"
         echo $git_repo
         git clone $git_repo
         cd $workingRepo
         git remote
         git submodule update --init --remote --recursive
-    '''
+    ''', label:"checkout", "$workingOrg" "$workingRepo"
 }
 
-def install_dependencies(){
+def install_dependencies(){/*
     sh script: '''
         apt-get update && apt-get -y -qq install git
         apt-get install -y wget
@@ -21,7 +21,7 @@ def install_dependencies(){
         apt-get install -y gcc-arm-none-eabi
         apt-get install -y build-essential
         apt-get install apt-utils
-    ''', label: "install dependencies"
+    ''', label: "install dependencies"*/
 }
 
 def install_ninja(){
