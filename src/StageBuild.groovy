@@ -1,17 +1,5 @@
 #!/usr/bin/env groovy
 
-class StageBuild{
-    void defineParameters(){
-
-    }
-    void defineOptions(){
-
-    }
-    void body(){
-
-    } 
-}
-
 def build(){
     def sharedSteps = new SharedSteps()
     sharedSteps.install_dependencies()
