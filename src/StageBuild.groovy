@@ -13,5 +13,5 @@ def build(){
         cd StateOS_BA_Jenkins
         cmake -S. -Bbuild -GNinja
         cmake --build build -v  
-    ''' 
+    ''' , label:""
 } 
