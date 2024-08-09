@@ -1,4 +1,4 @@
-#!/usr/bin/env shell
+#!/usr/bin/env bash
 git --version
 echo $1
 echo $2
