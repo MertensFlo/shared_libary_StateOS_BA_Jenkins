@@ -1,8 +1,8 @@
 
 def example_test(){
     def sharedSteps = new SharedSteps()
-    sharedSteps.install_ninja()
-    sharedSteps.arm_install()
+    //sharedSteps.install_ninja()
+    //sharedSteps.arm_install()
     sharedSteps.check_installs()
     sh script:'''
         cd StateOS_BA_Jenkins
@@ -14,8 +14,8 @@ def example_test(){
 
 def static_test(){
     def sharedSteps = new SharedSteps()
-    sharedSteps.install_ninja()
-    sharedSteps.arm_install()
+    //sharedSteps.install_ninja()
+    //sharedSteps.arm_install()
     sharedSteps.check_installs()
     sh script:'''
         cd StateOS_BA_Jenkins
@@ -27,8 +27,8 @@ def static_test(){
 
 def unit_test(){
     def sharedSteps = new SharedSteps()
-    sharedSteps.install_ninja()
-    sharedSteps.arm_install()
+    //sharedSteps.install_ninja()
+    //sharedSteps.arm_install()
     sharedSteps.check_installs()
     sh script:'''
         cd StateOS_BA_Jenkins
