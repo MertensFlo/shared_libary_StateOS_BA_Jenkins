@@ -4,7 +4,7 @@ def checkout_git(String workingOrg, String workingRepo){
 }
 
 def install_dependencies(boolean flag_dependencies, boolean flag_ninja){
-    sh install_dependencies.sh script: '''
+    sh script: '''
         apt-get update && apt-get -y -qq install git
         apt-get install -y wget
         apt-get install -y xz-utils 
