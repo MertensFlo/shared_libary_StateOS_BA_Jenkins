@@ -11,7 +11,7 @@ def checkout_git(){
 }
 
 def install_dependencies(){
-    sh script:'''
+    sh '''
         apt-get update && apt-get -y -qq install git
         apt-get install -y wget
         apt-get install -y xz-utils 
