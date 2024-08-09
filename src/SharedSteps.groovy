@@ -1,17 +1,20 @@
+@libraryResource()
+
+def load_git_script = libraryResource 'git.sh'
 
 def checkout_git(String workingOrg, String workingRepo){
-    sh git.sh workingOrg $workingRepo
+    sh load_git_script workingOrg $workingRepo
 }
 
 def install_dependencies(){
     sh script: '''
-        apt-get update && apt-get -y -qq install git
+        apt-get update && apt-get -y -qq install git'''/*
         apt-get install -y wget
         apt-get install -y xz-utils 
         apt-get install -y gcc-arm-none-eabi
         apt-get install -y build-essential
         apt-get install apt-utils
-    ''', label: "install dependencies"
+    ''', label: "install dependencies"*/
 }
 
 def install_ninja(){
