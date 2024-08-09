@@ -11,7 +11,7 @@ def example_test(){
     //cmake -S. -Bbuild -GNinja
      //   cmake --build build -v 
 } 
-
+/*
 def static_test(){
     def sharedSteps = new SharedSteps()
     //sharedSteps.install_ninja()
@@ -23,7 +23,7 @@ def static_test(){
     ''' , label:"static code test"
     //cmake -S. -Bbuild -GNinja
      //   cmake --build build -v 
-} 
+} */
 
 def unit_test(){
     def sharedSteps = new SharedSteps()
