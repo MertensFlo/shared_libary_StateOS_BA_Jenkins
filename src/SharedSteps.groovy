@@ -2,7 +2,7 @@
 
 def checkout_git(String workingOrg, String workingRepo){
     def load_git_script = libraryResource 'git.sh'
-    sh load_git_script $workingOrg $workingRepo
+    bash load_git_script $workingOrg workingRepo
 }
 
 def install_dependencies(){
