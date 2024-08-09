@@ -1,22 +1,10 @@
 
 def checkout_git(String workingOrg, String workingRepo){
-    sh script: '''
-        git --version
-        echo $workingOrg
-        echo $workingRepo
-        echo $1
-        echo $2
-        git_repo = "https://github.com/"$workingOrg"/"$WorkingRepo".git"
-        echo $git_repo
-        git clone $git_repo
-        cd $workingRepo
-        git remote
-        git submodule update --init --remote --recursive
-    ''', label:"checkout", workingOrg: "$workingOrg", workingRepo: "$workingRepo"
+    sh git.sh workingOrg $workingRepo
 }
 
-def install_dependencies(){
-    sh script: '''
+def install_dependencies(boolean flag_dependencies, boolean flag_ninja){
+    sh install_dependencies.sh script: '''
         apt-get update && apt-get -y -qq install git
         apt-get install -y wget
         apt-get install -y xz-utils 
@@ -43,7 +31,7 @@ def arm_install(){
     }
 }
 
-def check_installs(){
+def check_installs(boolean flag_arm){
     sh script: '''
         arm-none-eabi-gcc -v
     ''', label: "check installs"
