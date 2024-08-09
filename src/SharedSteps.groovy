@@ -1,16 +1,4 @@
 
-class SharedSteps{
-    void defineParameters(){
-
-    }
-    void defineOptions(){
-
-    }
-    void body(){
-
-    } 
-}
-
 def checkout_git(){
 
     sh '''
