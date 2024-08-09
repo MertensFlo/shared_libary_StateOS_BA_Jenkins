@@ -1,9 +1,7 @@
-
-
 def build(){
     def sharedSteps = new SharedSteps()
     sharedSteps.install_dependencies()
-    sharedSteps.checkout_git()
+    sharedSteps.checkout_git(MertensFlo,StateOS_BA_Jenkins)
     sharedSteps.install_ninja()
     sharedSteps.arm_install()
     sharedSteps.check_installs()

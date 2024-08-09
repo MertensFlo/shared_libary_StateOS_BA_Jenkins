@@ -1,12 +1,13 @@
 
-def checkout_git(){
-    sh script: '''
+def checkout_git(String workingOrg, String workingRepo){
+    script{
         git --version
-        git clone https://github.com/MertensFlo/StateOS_BA_Jenkins.git
-        cd StateOS_BA_Jenkins
+        git_repo = "https://github.com/" + workingOrg + "/" + workingRepo + ".git"
+        git clone git_repo
+        cd workingRepo
         git remote
         git submodule update --init --remote --recursive
-    ''', label: "git checkout"
+    } label: "git checkout"
 }
 
 def install_dependencies(){

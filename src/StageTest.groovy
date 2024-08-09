@@ -6,7 +6,7 @@ def example_test(){
     sharedSteps.check_installs()
     sh script:'''
         cd StateOS_BA_Jenkins
-        sh ./.example-test.sh  
+        sh ./.example-test.sh
     ''' , label:"example test"
     //cmake -S. -Bbuild -GNinja
      //   cmake --build build -v 
@@ -32,7 +32,7 @@ def unit_test(){
     sharedSteps.check_installs()
     sh script:'''
         cd StateOS_BA_Jenkins
-        sh 'make all -f .unit-test.make 
+        make all -f .unit-test.make 
     ''' , label:"make unit test"
     //cmake -S. -Bbuild -GNinja
      //   cmake --build build -v 
