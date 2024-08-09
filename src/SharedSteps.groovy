@@ -15,7 +15,7 @@ def checkout_git(String workingOrg, String workingRepo){
     ''', label:"checkout", workingOrg: "$workingOrg", workingRepo: "$workingRepo"
 }
 
-def install_dependencies(){/*
+def install_dependencies(){
     sh script: '''
         apt-get update && apt-get -y -qq install git
         apt-get install -y wget
@@ -23,7 +23,7 @@ def install_dependencies(){/*
         apt-get install -y gcc-arm-none-eabi
         apt-get install -y build-essential
         apt-get install apt-utils
-    ''', label: "install dependencies"*/
+    ''', label: "install dependencies"
 }
 
 def install_ninja(){
