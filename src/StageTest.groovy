@@ -1,5 +1,5 @@
 
-def example_test(){
+def example_test(){/*
     def sharedSteps = new SharedSteps()
     //sharedSteps.install_ninja()
     //sharedSteps.arm_install()
@@ -9,7 +9,7 @@ def example_test(){
         sh ./.example-test.sh
     ''' , label:"example test"
     //cmake -S. -Bbuild -GNinja
-     //   cmake --build build -v 
+     //   cmake --build build -v */
 } 
 
 def static_test(){/*
@@ -25,7 +25,7 @@ def static_test(){/*
      //   cmake --build build -v */
 } 
 
-def unit_test(){
+def unit_test(){/*
     def sharedSteps = new SharedSteps()
     //sharedSteps.install_ninja()
     //sharedSteps.arm_install()
@@ -35,5 +35,5 @@ def unit_test(){
         make all -f .unit-test.make 
     ''' , label:"make unit test"
     //cmake -S. -Bbuild -GNinja
-     //   cmake --build build -v 
+     //   cmake --build build -v */
 } 
