@@ -7,7 +7,7 @@ def build(){
     sh'''
         apt-get -y -qq update && apt-get -y -qq install cmake ninja-build
     '''
-    sharedSteps.arm_none_eabi_gcc()
+    sharedSteps.arm_install()
     sharedSteps.check_installs()
     sh '''
         cd StateOS_BA_Jenkins
