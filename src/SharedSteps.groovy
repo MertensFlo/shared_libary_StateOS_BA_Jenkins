@@ -1,5 +1,5 @@
 
-class BuildStage{
+class SharedSteps{
     void defineParameters(){
 
     }

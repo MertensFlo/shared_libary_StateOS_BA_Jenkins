@@ -1,6 +1,6 @@
 #!/usr/bin/env groovy
 
-class BuildStage{
+class StageBuild{
     void defineParameters(){
 
     }
