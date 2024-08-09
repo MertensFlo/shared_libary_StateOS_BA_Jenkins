@@ -7,11 +7,12 @@ class SharedSteps{
 
     }
     void body(){
-        
+
     } 
 }
 
 def checkout_git(){
+
     sh '''
         git --version
         git clone https://github.com/MertensFlo/StateOS_BA_Jenkins.git
