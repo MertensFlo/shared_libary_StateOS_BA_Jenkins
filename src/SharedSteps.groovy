@@ -7,7 +7,7 @@ def checkout_git(String workingOrg, String workingRepo){
         cd $workingRepo
         git remote
         git submodule update --init --remote --recursive
-    ''' label: "git checkout"
+    ''', label: "git checkout"
 }
 
 def install_dependencies(){
