@@ -4,14 +4,14 @@ def build(){
     def sharedSteps = new SharedSteps()
     sharedSteps.install_dependencies()
     sharedSteps.checkout_git()
-    sh'''
+    sh script:'''
         apt-get -y -qq update && apt-get -y -qq install cmake ninja-build
-    '''
+    ''' , label:"further installs"
     sharedSteps.arm_install()
     sharedSteps.check_installs()
-    sh '''
+    sh script:'''
         cd StateOS_BA_Jenkins
         cmake -S. -Bbuild -GNinja
         cmake --build build -v  
-    ''' , label:""
+    ''' , label:"make test"
 } 
