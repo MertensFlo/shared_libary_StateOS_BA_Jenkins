@@ -1,13 +1,11 @@
 
 def checkout_git(String workingOrg, String workingRepo){
-    script{
-        git --version
-        git_repo = "https://github.com/" + $workingOrg + "/" + $workingRepo + ".git"
-        git clone $git_repo
-        cd $workingRepo
-        git remote
-        git submodule update --init --remote --recursive
-    }
+    git --version
+    git_repo = "https://github.com/" + $workingOrg + "/" + $workingRepo + ".git"
+    git clone $git_repo
+    cd $workingRepo
+    git remote
+    git submodule update --init --remote --recursive
 }
 
 def install_dependencies(){
