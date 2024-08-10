@@ -2,7 +2,7 @@
 def test(boolean example_test, boolean static_code, boolean unit_test, String workingRepo){
     def sharedSteps = new SharedSteps()
     //sharedSteps.install_ninja()
-    sharedSteps.arm_install()
+    sharedSteps.install_pipeline_specific()
     sharedSteps.check_installs()
     if(example_test){
         sharedSteps.example_test(workingRepo)
