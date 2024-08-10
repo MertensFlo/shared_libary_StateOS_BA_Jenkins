@@ -4,5 +4,5 @@ def build(boolean git, boolean wget, boolean xz_utils, boolean arm, boolean buil
     sharedSteps.checkout_git(workingOrg, workingRepo) //(String workingOrg, String workingRepo)
     sharedSteps.install_pipeline_specific(arm_version, arm) //(String arm version, boolean arm)
     sharedSteps.check_installs(arm)
-    sharedSteps.make_build(ninja)
+    sharedSteps.make_build(workingRepo, ninja)
 } 
