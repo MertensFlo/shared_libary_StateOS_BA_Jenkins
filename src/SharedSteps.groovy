@@ -5,8 +5,8 @@ def checkout_git(String workingOrg, String workingRepo){
         git --version
         echo workingOrg: $workingOrg
         echo workingRepo: $workingRepo
-        echo "https://github.com/"$workingOrg"/"$workingRepo".git"
-        git clone "https://github.com/"$workingOrg"/"$workingRepo".git"
+        echo https://github.com/$workingOrg/$workingRepo.git
+        git clone https://github.com/$workingOrg/$workingRepo.git
         cd $workingRepo
         git remote
         git submodule update --init --remote --recursive
