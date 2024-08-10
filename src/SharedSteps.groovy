@@ -67,3 +67,24 @@ def make_build(String workingRepo, boolean ninja){
         cmake --build build -v  
     """ , label:"make build"
 }
+
+def example_test(String workingRepo){
+    sh script:"""
+        cd $workingRepo
+        sh ./.example-test.sh
+    """ , label:"example test"
+}
+
+def static_code(String workingRepo){
+    h script:"""
+        cd $workingRepo
+        sh ./.stdc++-test.sh 
+    """ , label:"static code test"
+}
+
+def unit_test(String workingRepo){
+    sh script:"""
+        cd $workingRepo
+        make all -f .unit-test.make 
+    """ , label:"make unit test"
+}
