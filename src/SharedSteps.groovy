@@ -1,6 +1,10 @@
 
 
 def checkout_git(String workingOrg, String workingRepo){
+    sh script: """
+        echo "workingOrg: $workingOrg"
+        echo "workingOrg:" + workingOrg
+    """
     def load_git_script = libraryResource 'git.sh'
     bash load_git_script $workingOrg workingRepo
 }
