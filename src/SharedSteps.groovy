@@ -33,7 +33,7 @@ def install_dependencies(boolean git, boolean wget, boolean xz_utils, boolean ar
         sh script: "apt-get install apt-utils", label: "install apt-utils"
     }
     if(ninja){
-        sh script:"apt-get -y -qq update && apt-get -y -qq install cmake ninja-build", label:"install ninja"
+        sh script: "apt-get -y -qq update && apt-get -y -qq install cmake ninja-build", label: "install ninja"
     }
 }
 
@@ -58,7 +58,10 @@ def check_installs(boolean arm){
 def make_build(String workingRepo, boolean ninja){
     sh script: "cd $workingRepo"
     if(ninja){
-        sh script: "cmake -S. -Bbuild -GNinja", label:"build ninja"
+        sh script: """
+            cd $workingRepo
+            cmake -S. -Bbuild -GNinja
+        """, label:"build ninja"
     }
     sh script: "cmake --build build -v  " , label:"make build"
 }
