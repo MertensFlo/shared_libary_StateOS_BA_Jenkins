@@ -56,7 +56,7 @@ def check_installs(boolean arm){
 }
 
 def make_build(String workingRepo, boolean ninja){
-    sh script: "cd $wokingRepo"
+    sh script: "cd $workingRepo"
     if(ninja){
         sh script: "cmake -S. -Bbuild -GNinja", label:"build ninja"
     }
