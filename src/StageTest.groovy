@@ -7,8 +7,8 @@ def test(boolean example_test, boolean static_code, boolean unit_test, boolean a
     if(example_test){
         sharedSteps.example_test(workingRepo)
     }else if(static_code){
-        sharedSteps.static_test(workingRepo)
-    }else if(unit){
+        sharedSteps.static_code_test(workingRepo)
+    }else if(unit_test){
         sharedSteps.unit_test(workingRepo)
     }
 } 

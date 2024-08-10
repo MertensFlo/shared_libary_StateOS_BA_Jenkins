@@ -75,7 +75,7 @@ def example_test(String workingRepo){
     """ , label:"example test"
 }
 
-def static_code(String workingRepo){
+def static_code_test(String workingRepo){
     sh script:"""
         cd $workingRepo
         sh ./.stdc++-test.sh 
