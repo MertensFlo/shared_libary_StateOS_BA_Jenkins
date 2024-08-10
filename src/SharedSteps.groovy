@@ -37,13 +37,16 @@ def install_dependencies(boolean git, boolean wget, boolean xz_utils, boolean ar
     }
 }
 
-def install_pipeline_specific(String arm_version){
-    sh script: """
+def install_pipeline_specific(String arm_version, boolean arm){
+    if(arm){
+        sh script: """
         wget -q https://developer.arm.com/-/media/Files/downloads/gnu/$arm_version/binrel/arm-gnu-toolchain-$arm_version-x86_64-arm-none-eabi.tar.xz
         echo "1"
         tar -xf arm-gnu-toolchain-$arm_version-x86_64-arm-none-eabi.tar.xz
         echo ${env.WORKSPACE}/arm-gnu-toolchain-$arm_version-x86_64-arm-none-eabi/bin >> env.GITHUB_PATH
     """, label: "arm install"
+    }
+    
 }
 
 def check_installs(boolean arm){
