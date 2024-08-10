@@ -13,7 +13,7 @@ def checkout_git(String workingOrg, String workingRepo){
     """
 }
 
-def install_dependencies(boolean git, boolean wget, boolean xz_utils, boolean arm, boolean build_essential, boolean apt_utils){
+def install_dependencies(boolean git, boolean wget, boolean xz_utils, boolean arm, boolean build_essential, boolean apt_utils, boolean ninja){
     if(git){
         sh script: "apt-get update && apt-get -y -qq install git", label: "install git"
     }
