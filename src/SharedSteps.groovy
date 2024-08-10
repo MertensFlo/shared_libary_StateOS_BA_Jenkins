@@ -5,8 +5,8 @@ def checkout_git(String workingOrg, String workingRepo){
         git --version
         echo workingOrg: $workingOrg
         echo workingRepo: $workingRepo
-        echo https://github.com/$workingOrg/$workingRepo.git
-        git clone https://github.com/$workingOrg/$workingRepo.git
+        echo "https://github.com/"$workingOrg"/"$workingRepo".git"
+        git clone "https://github.com/"$workingOrg"/"$workingRepo".git"
         cd $workingRepo
         git remote
         git submodule update --init --remote --recursive
@@ -30,15 +30,13 @@ def install_ninja(){
     """ , label:"install"
 }
 
-def arm_install(){
+def arm_install(String arm_version){
     sh script: """
-        wget -q https://developer.arm.com/-/media/Files/downloads/gnu/11.3.rel1/binrel/arm-gnu-toolchain-11.3.rel1-x86_64-arm-none-eabi.tar.xz
+        wget -q https://developer.arm.com/-/media/Files/downloads/gnu/$arm_version/binrel/arm-gnu-toolchain-$arm_version-x86_64-arm-none-eabi.tar.xz
         echo "1"
-        tar -xf arm-gnu-toolchain-11.3.rel1-x86_64-arm-none-eabi.tar.xz
+        tar -xf arm-gnu-toolchain-$arm_version-x86_64-arm-none-eabi.tar.xz
+        ${env.WORKSPACE}/arm-gnu-toolchain-$arm_version-x86_64-arm-none-eabi/bin >> env.GITHUB_PATH
     """, label: "arm install"
-    script{
-        env.JENKINS_PATH = "${env.WORKSPACE}/arm-gnu-toolchain-11.3.rel1-x86_64-arm-none-eabi/bin"
-    }
 }
 
 def check_installs(){
