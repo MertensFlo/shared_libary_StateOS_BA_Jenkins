@@ -1,4 +1,4 @@
-class Pipeline_ {
+class Pipeline_{
     private final Script script
 
     Pipeline_(Script script) {

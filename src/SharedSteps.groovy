@@ -4,6 +4,7 @@ class SharedSteps {
     SharedSteps(Script script) {
         this.script = script
     }
+    
 }
 
 def checkout_git(String workingOrg, String workingRepo){
