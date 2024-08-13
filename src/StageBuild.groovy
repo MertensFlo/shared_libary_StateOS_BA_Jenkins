@@ -1,3 +1,11 @@
+class StageBuild {
+    private final Script script
+
+    StageBuild(Script script) {
+        this.script = script
+    }
+}
+
 def build(){
     def sharedSteps = new SharedSteps()
     sharedSteps.install_dependencies()

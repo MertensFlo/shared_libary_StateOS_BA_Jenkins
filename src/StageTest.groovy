@@ -1,3 +1,10 @@
+class StageTest {
+    private final Script script
+
+    StageTest(Script script) {
+        this.script = script
+    }
+}
 
 def example_test(){
     def sharedSteps = new SharedSteps()
