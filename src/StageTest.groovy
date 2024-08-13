@@ -7,7 +7,7 @@ class StageTest {
 }
 
 def test(boolean example_test, boolean static_code, boolean unit_test, boolean arm, String arm_version, String workingRepo){
-    def sharedSteps = new SharedSteps()
+    def sharedSteps = new SharedSteps(script)
     //sharedSteps.install_ninja()
     sharedSteps.install_pipeline_specific(arm_version, arm)
     sharedSteps.check_installs(arm)

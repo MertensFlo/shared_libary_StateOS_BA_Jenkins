@@ -6,7 +6,7 @@ class Pipeline_ {
     }
 
     void pipeline_build(Boolean build, Boolean example_test, Boolean static_test, Boolean unit_test){
-        def stages = new Stages_(this.script)
+        def stages = new Stages_(script)
         if(build){
             stages.build()
         }
