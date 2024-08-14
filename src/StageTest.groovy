@@ -5,9 +5,9 @@ class StageTest{
         this.script = script
     }
 
-    void test(Boolean flag_example_test, Boolean flag_static_code, Boolean flag_unit_test, Boolean flag_arm, String arm_path, String arm_tar_path,String arm_dir_path, String arm_condition, String workingRepo){
+    void test(Boolean flag_example_test, Boolean flag_static_code, Boolean flag_unit_test, Boolean flag_arm, String arm_path, String arm_tar_path,String arm_dir_path, String arm_condition, String arm_working_dir, String workingRepo){
         def sharedSteps = new SharedSteps(script)
-        sharedSteps.install_pipeline_specific(arm_path, arm_tar_path, arm_dir_path, arm_condition, flag_arm) //(String arm_path, String arm_tar_path,String arm_dir_path, String arm_condition, Boolean flag_arm)
+        sharedSteps.install_pipeline_specific(arm_path, arm_tar_path, arm_dir_path, arm_condition, arm_working_dir, flag_arm) //(String arm_path, String arm_tar_path,String arm_dir_path, String arm_condition, Boolean flag_arm)
         sharedSteps.check_installs(flag_arm) //(Boolean flag_arm)
         if(flag_example_test){
             sharedSteps.example_test(workingRepo) //(String workingRepo)
