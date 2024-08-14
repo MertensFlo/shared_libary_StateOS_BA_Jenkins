@@ -15,7 +15,7 @@ class SharedSteps {
         }
     }
 
-    def install_dependencies(boolean flag_git, boolean flag_wget, boolean flag_xz_utils, boolean flag_arm, boolean flag_build_essential, boolean flag_apt_utils, boolean flag_ninja, string cmake_verion){
+    def install_dependencies(boolean flag_git, boolean flag_wget, boolean flag_xz_utils, boolean flag_arm, boolean flag_build_essential, boolean flag_apt_utils, boolean flag_ninja, String cmake_verion){
         if(flag_git){
             script.sh "echo apt-get -y -qq install git"//, label: "install git"
         }
