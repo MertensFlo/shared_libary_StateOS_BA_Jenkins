@@ -17,7 +17,7 @@ class SharedSteps {
 
     def install_dependencies(boolean flag_git, boolean flag_wget, boolean flag_xz_utils, boolean flag_arm, boolean flag_build_essential, boolean flag_apt_utils, boolean flag_ninja, String cmake_verison){
         if(flag_git){
-            script.sh "apt-get -y -qq install git"//, label: "install git"
+            script.sh "echo apt-get -y -qq install git"//, label: "install git"
         }
         if(flag_wget){
             script.sh "echo apt-get install -y wget"//, label: "install wget"
