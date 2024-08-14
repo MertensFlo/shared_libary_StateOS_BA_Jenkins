@@ -37,11 +37,18 @@ class SharedSteps {
         if(flag_ninja){
             script.sh "echo apt-get -y -qq update && echo apt-get -y -qq install $cmake_verison ninja-build"//, label: "install ninja"
         }
+        script.sh """
+            echo install python py.3.x
+            echo python -m pip install --upgrade pip
+            echo pip install jinja2 ruamel.yaml"""
+        script.sh """
+            """
     }
 
-    def install_pipeline_specific(String arm_path, String arm_tar_path, String arm_dir_path, String arm_condition, boolean flag_arm){
+    def install_pipeline_specific(String arm_path, String arm_tar_path, String arm_dir_path, String arm_condition, String arm_working_dir, boolean flag_arm){
         if(flag_arm){
             script.sh """
+                cd $arm_working_dir
                 echo wget $arm_condition $arm_path
                 echo tar -xf $arm_tar_path
                 echo $arm_tar_path >> env.GITHUB_PATH
@@ -68,13 +75,36 @@ class SharedSteps {
                 echo cmake --build build -v  
             """ //, label:"make build"
         }
+        script.sh "echo ./scripts/buildAllConfigurations.sh configurations distortosTest" //TO-DO ----------------
     }
 
     def example_test(String workingRepo){
-        script.sh """
-            echo cd $workingRepo
-            echo sh ./.example-test.sh
-        """ //, label:"example test"
+        if(false){
+            script.sh """
+                echo cd $workingRepo
+                echo sh ./.example-test.sh
+            """ //, label:"example test"
+        }
+        
+        if(false){
+            script.sh """
+                for yamlFile in $(/usr/bin/find -L "${GITHUB_WORKSPACE}/source/board" -name '*.yaml')
+                do
+                    ${GITHUB_WORKSPACE}/scripts/generateBoard.py ${yamlFile}
+                done
+
+                git add -N .
+                git diff --exit-code
+
+                echo generate raw boards --------------------------
+
+                for yamlFile in $(/usr/bin/find -L "${GITHUB_WORKSPACE}/source/chip" -name '*.yaml')
+                do
+                ${GITHUB_WORKSPACE}/scripts/generateBoard.py ${yamlFile} -o /tmp/$(basename ${yamlFile} .yaml)
+                done
+            """
+        }
+        
     }
 
     def static_code_test(String workingRepo){
@@ -85,10 +115,24 @@ class SharedSteps {
     }
 
     def unit_test(String workingRepo){
-        script.sh """
-            echo cd $workingRepo
-            echo make all -f .unit-test.make 
-        """ //, label:"make unit test"
+        if(false){
+            script.sh """
+                echo cd $workingRepo
+                echo make all -f .unit-test.make 
+            """ //, label:"make unit test"
+        }
+        if(false){
+            script.sh """
+                echo cmake -E make_directory ${{github.workspace}}/output
+                echo cd cmake -G Ninja ${GITHUB_WORKSPACE}/unit-test
+                CC=gcc-10
+                CXX=g++-10
+                echo cmake -G Ninja ${GITHUB_WORKSPACE}/unit-test
+                echo cmake --build . --target all
+                echo cmake --build . --target run
+            """
+        }
+        
     }
 }
 
