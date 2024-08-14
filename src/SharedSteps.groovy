@@ -34,7 +34,7 @@ class SharedSteps {
             script.sh "echo apt-get install apt-utils"//, label: "install apt-utils"
         }
         if(ninja){
-            script.sh "echo apt-get -y -qq update && apt-get -y -qq install cmake ninja-build"//, label: "install ninja"
+            script.sh "echo apt-get -y -qq update && echo apt-get -y -qq install cmake ninja-build"//, label: "install ninja"
         }
     }
 
