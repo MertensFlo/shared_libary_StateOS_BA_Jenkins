@@ -90,7 +90,7 @@ class SharedSteps {
             script.sh """
                 for yamlFile in ${/usr/bin/find -L "$GITHUB_WORKSPACE/source/board" -name '*.yaml'}
                 do
-                    $GITHUB_WORKSPACE/scripts/generateBoard.py $yamlFile
+                    ${GITHUB_WORKSPACE}/scripts/generateBoard.py ${yamlFile}
                 done
 
                 git add -N .
@@ -100,7 +100,7 @@ class SharedSteps {
 
                 for yamlFile in ${/usr/bin/find -L "$GITHUB_WORKSPACE/source/chip" -name '*.yaml'}
                 do
-                $GITHUB_WORKSPACE/scripts/generateBoard.py $yamlFile -o /tmp/${basename $yamlFile .yaml}
+                ${GITHUB_WORKSPACE}/scripts/generateBoard.py ${yamlFile} -o /tmp/${basename ${yamlFile} .yaml}
                 done
             """
         }
@@ -123,7 +123,7 @@ class SharedSteps {
         }
         if(false){
             script.sh """
-                echo cmake -E make_directory ${{github.workspace}}/output
+                echo cmake -E make_directory ${env.WORKSPACE}/output
                 echo cd cmake -G Ninja ${GITHUB_WORKSPACE}/unit-test
                 CC=gcc-10
                 CXX=g++-10
