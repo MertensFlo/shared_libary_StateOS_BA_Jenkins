@@ -1,4 +1,4 @@
-class StageBuild {
+class StageBuild{
     private final Script script
 
     StageBuild(Script script) {

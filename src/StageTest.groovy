@@ -1,4 +1,4 @@
-class StageTest {
+class StageTest{
     private final Script script
 
     StageTest(Script script) {
