@@ -19,25 +19,25 @@ class SharedSteps {
 
     def install_dependencies(boolean git, boolean wget, boolean xz_utils, boolean arm, boolean build_essential, boolean apt_utils, boolean ninja){
         if(git){
-            script.sh "apt-get update && apt-get -y -qq install git", label: "install git"
+            script.sh "apt-get update && apt-get -y -qq install git"//, label: "install git"
         }
         if(wget){
-            script.sh "apt-get install -y wget", label: "install wget"
+            script.sh "apt-get install -y wget"//, label: "install wget"
         }
         if(xz_utils){
-            script.sh "apt-get install -y xz-utils", label: "install xz-utils"
+            script.sh "apt-get install -y xz-utils"//, label: "install xz-utils"
         }
         if(arm){
-            script.sh "apt-get install -y gcc-arm-none-eabi", label: "install arm"
+            script.sh "apt-get install -y gcc-arm-none-eabi"//, label: "install arm"
         }
         if(build_essential){
-            script.sh "apt-get install -y build-essential", label: "install build-essential"
+            script.sh "apt-get install -y build-essential"//, label: "install build-essential"
         }
         if(apt_utils){
-            script.sh "apt-get install apt-utils", label: "install apt-utils"
+            script.sh "apt-get install apt-utils"//, label: "install apt-utils"
         }
         if(ninja){
-            script.sh "apt-get -y -qq update && apt-get -y -qq install cmake ninja-build", label: "install ninja"
+            script.sh "apt-get -y -qq update && apt-get -y -qq install cmake ninja-build"//, label: "install ninja"
         }
     }
 
@@ -48,13 +48,13 @@ class SharedSteps {
                 echo "1"
                 tar -xf arm-gnu-toolchain-$arm_version-x86_64-arm-none-eabi.tar.xz
                 echo ${env.WORKSPACE}/arm-gnu-toolchain-$arm_version-x86_64-arm-none-eabi/bin >> env.GITHUB_PATH
-            """, label: "arm install"
+            """//, label: "arm install"
         }
     }
 
     def check_installs(boolean arm){
         if(arm){
-            script.sh "arm-none-eabi-gcc -v", label: "check installs"
+            script.sh "arm-none-eabi-gcc -v"//, label: "check installs"
         }
     }
 
@@ -63,33 +63,33 @@ class SharedSteps {
             script.sh """
                 cd $workingRepo
                 cmake -S. -Bbuild -GNinja
-            """, label:"build ninja"
+            """//, label:"build ninja"
         }
         script.sh """
             cd $workingRepo
             cmake --build build -v  
-        """ , label:"make build"
+        """ //, label:"make build"
     }
 
     def example_test(String workingRepo){
         script.sh """
             cd $workingRepo
             sh ./.example-test.sh
-        """ , label:"example test"
+        """ //, label:"example test"
     }
 
     def static_code_test(String workingRepo){
         script.sh """
             cd $workingRepo
             sh ./.stdc++-test.sh 
-        """ , label:"static code test"
+        """ //, label:"static code test"
     }
 
     def unit_test(String workingRepo){
         script.sh """
             cd $workingRepo
             make all -f .unit-test.make 
-        """ , label:"make unit test"
+        """ //, label:"make unit test"
     }
 }
 
