@@ -18,8 +18,9 @@ class SharedSteps {
     }
 
     def install_dependencies(boolean git, boolean wget, boolean xz_utils, boolean arm, boolean build_essential, boolean apt_utils, boolean ninja){
+        //script.sh "sudo apt-get update"
         if(git){
-            script.sh "apt-get -y -qq install git"//, label: "install git"
+            script.sh "sudo apt-get -y -qq install git"//, label: "install git"
         }
         if(wget){
             script.sh "apt-get install -y wget"//, label: "install wget"
