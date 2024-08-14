@@ -18,7 +18,7 @@ class Stages_{
     void example_test(String name){
         script.stage(name) {
             if(false){
-                testStage.test(false, false, false, true, "11.3.rel1", "StateOS_BA_Jenkins") //(boolean example_test, boolean static_code, boolean unit_test, boolean arm, String arm_version, String workingRepo)
+                testStage.test(true, false, false, true, "11.3.rel1", "StateOS_BA_Jenkins") //(boolean example_test, boolean static_code, boolean unit_test, boolean arm, String arm_version, String workingRepo)
             }
         }
     }
@@ -26,7 +26,7 @@ class Stages_{
     void static_code_test(String name){
         script.stage(name) {
             if(false){
-                testStage.test(false, false, true, true, "11.3.rel1", "StateOS_BA_Jenkins") //(boolean example_test, boolean static_code, boolean unit_test, boolean arm, String arm_version, String workingRepo)
+                testStage.test(false, false, false, true, "11.3.rel1", "StateOS_BA_Jenkins") //(boolean example_test, boolean static_code, boolean unit_test, boolean arm, String arm_version, String workingRepo)
             }
         }
         

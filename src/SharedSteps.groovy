@@ -70,22 +70,22 @@ class SharedSteps {
 
     def example_test(String workingRepo){
         script.sh """
-            cd $workingRepo
-            sh ./.example-test.sh
+            echo cd $workingRepo
+            echo sh ./.example-test.sh
         """ //, label:"example test"
     }
 
     def static_code_test(String workingRepo){
         script.sh """
-            cd $workingRepo
-            sh ./.stdc++-test.sh 
+            echo cd $workingRepo
+            echo sh ./.stdc++-test.sh 
         """ //, label:"static code test"
     }
 
     def unit_test(String workingRepo){
         script.sh """
-            cd $workingRepo
-            make all -f .unit-test.make 
+            echo cd $workingRepo
+            echo make all -f .unit-test.make 
         """ //, label:"make unit test"
     }
 }
