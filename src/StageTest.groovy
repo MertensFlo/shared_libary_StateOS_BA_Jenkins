@@ -1,7 +1,7 @@
-class StageTest{
+class StageTest_{
     private final Script script
 
-    StageTest(Script script) {
+    StageTest_(Script script) {
         this.script = script
     }
 
