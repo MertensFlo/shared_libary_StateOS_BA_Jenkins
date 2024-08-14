@@ -88,9 +88,9 @@ class SharedSteps {
         
         if(false){
             script.sh """
-                for yamlFile in $(/usr/bin/find -L "${GITHUB_WORKSPACE}/source/board" -name '*.yaml')
+                for yamlFile in $(/usr/bin/find -L "$GITHUB_WORKSPACE/source/board" -name '*.yaml')
                 do
-                    ${GITHUB_WORKSPACE}/scripts/generateBoard.py ${yamlFile}
+                    $GITHUB_WORKSPACE/scripts/generateBoard.py $yamlFile
                 done
 
                 git add -N .
@@ -98,9 +98,9 @@ class SharedSteps {
 
                 echo generate raw boards --------------------------
 
-                for yamlFile in $(/usr/bin/find -L "${GITHUB_WORKSPACE}/source/chip" -name '*.yaml')
+                for yamlFile in $(/usr/bin/find -L "$GITHUB_WORKSPACE/source/chip" -name '*.yaml')
                 do
-                ${GITHUB_WORKSPACE}/scripts/generateBoard.py ${yamlFile} -o /tmp/$(basename ${yamlFile} .yaml)
+                ${GITHUB_WORKSPACE}/scripts/generateBoard.py $yamlFile -o /tmp/$(basename $yamlFile .yaml)
                 done
             """
         }
