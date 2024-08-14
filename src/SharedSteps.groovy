@@ -19,25 +19,25 @@ class SharedSteps {
 
     def install_dependencies(boolean git, boolean wget, boolean xz_utils, boolean arm, boolean build_essential, boolean apt_utils, boolean ninja){
         if(git){
-            script.sh "sudo apt-get update && apt-get -y -qq install git"//, label: "install git"
+            script.sh "apt-get -y -qq install git"//, label: "install git"
         }
         if(wget){
-            script.sh "sudo apt-get install -y wget"//, label: "install wget"
+            script.sh "apt-get install -y wget"//, label: "install wget"
         }
         if(xz_utils){
-            script.sh "sudo apt-get install -y xz-utils"//, label: "install xz-utils"
+            script.sh "apt-get install -y xz-utils"//, label: "install xz-utils"
         }
         if(arm){
-            script.sh "sudo apt-get install -y gcc-arm-none-eabi"//, label: "install arm"
+            script.sh "apt-get install -y gcc-arm-none-eabi"//, label: "install arm"
         }
         if(build_essential){
-            script.sh "sudo apt-get install -y build-essential"//, label: "install build-essential"
+            script.sh "apt-get install -y build-essential"//, label: "install build-essential"
         }
         if(apt_utils){
-            script.sh "sudo apt-get install apt-utils"//, label: "install apt-utils"
+            script.sh "apt-get install apt-utils"//, label: "install apt-utils"
         }
         if(ninja){
-            script.sh "sudo apt-get -y -qq update && apt-get -y -qq install cmake ninja-build"//, label: "install ninja"
+            script.sh "apt-get -y -qq update && apt-get -y -qq install cmake ninja-build"//, label: "install ninja"
         }
     }
 
