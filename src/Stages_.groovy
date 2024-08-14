@@ -23,7 +23,7 @@ class Stages_{
 
     void static_code_test(String stage_name,Boolean flag_example_test, Boolean flag_static_code, Boolean flag_unit_test, Boolean flag_arm, String arm_path, String arm_tar_path,String arm_dir_path, String arm_condition, String workingRepo){
         script.stage(stage_name) {
-            testStage.test(fflag_example_test, flag_static_code, flag_unit_test, flag_arm, arm_path, arm_tar_path, arm_dir_path, arm_condition, workingRepo) //(Boolean flag_example_test, Boolean flag_static_code, Boolean flag_unit_test, Boolean flag_arm, String arm_path, String arm_tar_path,String arm_dir_path, String arm_condition, String workingRepo)
+            testStage.test(flag_example_test, flag_static_code, flag_unit_test, flag_arm, arm_path, arm_tar_path, arm_dir_path, arm_condition, workingRepo) //(Boolean flag_example_test, Boolean flag_static_code, Boolean flag_unit_test, Boolean flag_arm, String arm_path, String arm_tar_path,String arm_dir_path, String arm_condition, String workingRepo)
         }
         
     }
