@@ -14,7 +14,7 @@ class Pipeline_{
             stages.example_test("example_test")
         }
         if(static_test){
-            stages.static_test("static_test")
+            stages.static_code_test("static_test")
         }
         if(unit_test){
             stages.unit_test("unit_test")
